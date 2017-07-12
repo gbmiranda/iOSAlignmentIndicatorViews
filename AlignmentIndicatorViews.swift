@@ -15,15 +15,16 @@ public class AlignmentIndicatorViews {
         return instance
     }()
     
-    private var lineColor = ColorsPallet.color_rosa
-    
+    private var lineColor = UIColor.red
+    private var lineWidth: CGFloat = 0.6
+
     private var layersLines: [CALayer]?
     
     private var otherViews: [UIView]!
     private var currentView: UIView!
     private var parentView: UIView!
     
-    func identificaViews(currentView: UIView, parentView: UIView, otherViews: [UIView]){
+    func identifyViews(currentView: UIView, parentView: UIView, otherViews: [UIView]){
         
         self.currentView = currentView
         self.parentView = parentView
@@ -880,7 +881,7 @@ public class AlignmentIndicatorViews {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = 0.6
+        shapeLayer.lineWidth = self.lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         layersLines?.append(shapeLayer)
